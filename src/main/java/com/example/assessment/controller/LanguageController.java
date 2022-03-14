@@ -21,6 +21,7 @@ public class LanguageController {
 	
 	@RequestMapping("/employee/{id}/language")
 	public List<Language> getAllLanguages(@PathVariable String id){
+		System.out.println("In Get");
 		return languageService.getAllLanguages(id);
 	}
 	
@@ -29,19 +30,19 @@ public class LanguageController {
 		return languageService.getLanguage(languageId);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST,value = "/employee/{empId}/language")
+	@RequestMapping(method = RequestMethod.POST,value="/employee/{empId}/language")
 	public void addLanguage(@RequestBody Language language, @PathVariable String empId) {
 		language.setEmployee(new Employee(empId,"",""));
 		languageService.addLanguage(language);
 	}
-	
-	@RequestMapping(method = RequestMethod.PUT,value = "/employee/{empid}/language/{languageId}")
+
+	@RequestMapping(method = RequestMethod.PUT,value="/employee/{empId}/language/{languageId}")
 	public void updateLanguage(@RequestBody Language language,@PathVariable String empId, @PathVariable String languageId) {
 		language.setEmployee(new Employee(empId,"",""));
 		languageService.updateLanguage(language);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE,value = "/employee/{empid}/language/{languageId}")
+	@RequestMapping(method = RequestMethod.DELETE,value="/employee/{empId}/language/{languageId}")
 	public void deleteLanguage(@PathVariable String languageId) {
 		languageService.deleteLanguage(languageId);
 	}

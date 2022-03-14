@@ -18,9 +18,11 @@ public class Language {
 	private String id;
 	private String lname;
 	private String description;
+	
 	@ManyToOne
 	private Employee employee;
-
+	
+	public Language(){}
 
 	public String getLname() {
 		return lname;
@@ -46,7 +48,6 @@ public class Language {
 		this.employee = employee;
 	}
 	
-	public Language(){}
 
 	public Language(String id, String lname, String description, String empId) {
 		super();
